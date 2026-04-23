@@ -56,19 +56,28 @@ public class ManagerSiswa {
                     }
                 }
 
-                if (nissama){
+                try{
+                    if (nissama){
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Error: NIS sudah ada!",
+                                "NIS yang sama",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+                    }
+                    else {
+                        String siswa = nis + "," + nama + "," + alamat;
+                        FileHandling.writeFile(namaFile, siswa, true);
+                        model.addRow(new String[]{nis, nama, alamat});
+                        JOptionPane.showMessageDialog(null, "Data siswa berhasil ditambahkan!");
+                    }
+                }catch (Exception e){
                     JOptionPane.showMessageDialog(
                             null,
                             "Error: NIS sudah ada!",
                             "NIS yang sama",
                             JOptionPane.ERROR_MESSAGE
                     );
-                }
-                else {
-                    String siswa = nis + "," + nama + "," + alamat;
-                    FileHandling.writeFile(namaFile, siswa, true);
-                    model.addRow(new String[]{nis, nama, alamat});
-                    JOptionPane.showMessageDialog(null, "Data siswa berhasil ditambahkan!");
                 }
         }
     }
