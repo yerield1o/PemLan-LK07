@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,10 @@ public class FileHandling {
             }
         }
         catch (FileNotFoundException e) {
-            System.out.println("File " + fileName + " tidak ditemukan");
+            JOptionPane.showMessageDialog(null,
+                    "Peringatan: File '" + fileName + "' tidak ditemukan!\nPastikan Anda menambahkan data baru agar file otomatis terbuat.",
+                    "File Tidak Ada",
+                    JOptionPane.WARNING_MESSAGE);
         }
         catch (IOException e) {
             System.out.println("Terjadi error saat membaca file " + fileName);
