@@ -38,7 +38,15 @@ public class PerpusSystem {
         });
 
         JButton removeSiswa = new JButton("Remove Siswa");
+        removeSiswa.addActionListener(e -> {
+            ManagerSiswa.deleteSiswa(model);
+        });
+
         JButton updateSiswa = new JButton("Update Siswa");
+        updateSiswa.addActionListener(e -> {
+            ManagerSiswa.updateSiswa(model);
+        });
+
         buttonpanels.add(addSiswa);
         buttonpanels.add(removeSiswa);
         buttonpanels.add(updateSiswa);
