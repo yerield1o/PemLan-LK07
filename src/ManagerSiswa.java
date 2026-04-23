@@ -66,8 +66,7 @@ public class ManagerSiswa {
                 }
                 else {
                     String siswa = nis + "," + nama + "," + alamat;
-                    existingData.add(siswa);
-                    FileHandling.rewriteFile(namaFile, existingData);
+                    FileHandling.writeFile(namaFile, siswa, true);
                     model.addRow(new String[]{nis, nama, alamat});
                     JOptionPane.showMessageDialog(null, "Data siswa berhasil ditambahkan!");
                 }
